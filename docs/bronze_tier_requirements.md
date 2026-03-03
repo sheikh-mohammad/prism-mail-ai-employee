@@ -3,6 +3,28 @@
 ## Overview
 This document outlines the minimum viable deliverables for the Bronze Tier of the Personal AI Employee Hackathon. The Bronze Tier represents the foundational level of implementation that establishes the core functionality of a Personal AI Employee.
 
+## Project Decisions & Clarifications
+
+### Watcher Script Choice: Gmail
+For the Bronze Tier requirement of "one working Watcher script (Gmail OR file system monitoring)", this project will implement the **Gmail watcher** approach.
+
+### PM2 Process Manager: NOT Required for Bronze Tier
+**Important:** PM2 (or other process managers like supervisord) is **NOT required** for Bronze Tier completion.
+
+**What IS Required:**
+- A working Python watcher script that can be manually executed
+- Script successfully monitors Gmail for new messages
+- Script creates actionable files in the /Needs_Action folder
+- Demonstration that the watcher works when run
+
+**When PM2 Would Be Needed:**
+- Silver/Gold tiers where 24/7 autonomous operation is required
+- Production deployment requiring auto-restart on crashes
+- Continuous monitoring without manual intervention
+- Advanced logging and process management features
+
+**For Bronze Tier:** Simply running `python gmail_watcher.py` manually to demonstrate functionality is sufficient. The focus is on proving the watcher logic works, not on production-grade daemon management.
+
 ## Bronze Tier Deliverables (Minimum Viable Product)
 
 Based on the hackathon guidelines, the following items constitute the Bronze Tier requirements:
