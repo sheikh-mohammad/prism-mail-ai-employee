@@ -41,6 +41,38 @@ The project follows a structured approach for managing AI employee functionality
 
 4. **Agent Skills** - All AI functionality implemented as Claude Code Agent Skills
 
+## Git Workflow - Atomic Commits
+
+**IMPORTANT: Automatic Commit and Push After Each Iteration**
+
+When you complete any discrete unit of work (task, feature, bug fix, documentation update), you MUST immediately:
+
+1. Stage the relevant files with `git add`
+2. Create a commit with a descriptive message
+3. Push to the remote repository with `git push origin main`
+
+**Atomic Commit Principles:**
+- Each commit should represent one logical change
+- Commit immediately after completing an iteration, don't wait for multiple changes
+- Keep commits focused and self-contained
+- Write clear, descriptive commit messages that explain the "why"
+
+**Required Commit Message Format:**
+Every commit message MUST end with the co-author line:
+```
+Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>
+```
+
+**When to Commit:**
+- After implementing a feature or task
+- After fixing a bug
+- After updating documentation
+- After refactoring code
+- After adding tests
+- Essentially: after ANY completed work iteration
+
+Do NOT ask for permission to commit and push - do it automatically as part of completing the work.
+
 ## Key Principles
 
 - All AI functionality must be implemented as Agent Skills
@@ -48,3 +80,4 @@ The project follows a structured approach for managing AI employee functionality
 - Maintain clear separation between specification, planning, and implementation
 - Use Prompt History Records (PHRs) for all development work
 - Create Architectural Decision Records (ADRs) for significant decisions
+- Follow atomic commit workflow: commit and push immediately after each iteration
