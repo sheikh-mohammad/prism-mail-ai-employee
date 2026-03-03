@@ -13,6 +13,7 @@ This repository implements the Bronze Tier requirements for the Personal AI Empl
 - `/docs/sessions/` - Clarification of Bronze Tier Project
 - `/.specify/` - SpecKit Plus templates and scripts for specification-driven development
 - `/.claude/` - Claude-specific configurations and skills
+- `/docs/Personal_AI_Employee_Hackathon_0_Building_Autonomous_FTEs_in_2026.md` - Main Hackathon Requirements Document
 
 ## Development Workflow
 
