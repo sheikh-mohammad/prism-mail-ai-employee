@@ -78,15 +78,14 @@ prism-mail-ai/
 ├── docs/                       # All documentation
 │   ├── sdd-methodology/        # SDD methodology documentation (10 files)
 │   ├── sessions/               # Clarification sessions and decisions
-│   ├── specs/                  # Feature specifications
-│   │   └── <feature>/
-│   │       ├── spec.md         # Feature specification
-│   │       ├── plan.md         # Architecture plan
-│   │       └── tasks.md        # Implementation tasks
 │   ├── bronze_tier_requirements.md
 │   └── Personal_AI_Employee_Hackathon_0_Building_Autonomous_FTEs_in_2026.md
+├── specs/                      # Feature specifications (root level)
+│   └── <feature-name>/
+│       ├── spec.md             # Feature specification
+│       ├── plan.md             # Plan created by Claude using plan mode
+│       └── tasks.md            # Tasks created by Claude using task tools
 ├── src/                        # Source code (to be created)
-├── tests/                      # Test files (to be created)
 ├── AGENTS.md                   # This file - Project guide
 ├── CLAUDE.md                   # Project constitution (governance rules)
 └── README.md                   # Project README
@@ -97,7 +96,7 @@ prism-mail-ai/
 The Obsidian vault will be created via Obsidian MCP with this structure:
 
 ```
-vault/
+AI_Employee_Vault/
 ├── Inbox/              # Untriaged emails from watcher (staging area)
 ├── Needs_Action/       # Items requiring human attention (after triage)
 ├── Summaries/          # FYI summaries (markdown files)
@@ -257,7 +256,7 @@ The Bronze Tier is complete when:
 2. **Phase 2: Specification**
    - Write comprehensive spec.md using four-part template
    - Include constraints and success criteria
-   - Store in `/docs/specs/<feature>/spec.md`
+   - Store in `/specs/<feature-name>/spec.md`
    - Get user approval before proceeding
 
 3. **Phase 3: Refinement**
@@ -292,7 +291,6 @@ Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>
 - After fixing a bug
 - After updating documentation
 - After refactoring code
-- After adding tests
 
 Do NOT ask for permission to commit and push - do it automatically.
 
