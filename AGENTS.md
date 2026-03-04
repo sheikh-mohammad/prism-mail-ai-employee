@@ -77,6 +77,7 @@ prism-mail-ai/
 ├── .claude/                    # Claude Code configurations and skills
 ├── docs/                       # All documentation
 │   ├── agent-skills-io/        # Agent Skills documentation (4 files)
+│   ├── claude-docs-agent-skills/ # Claude official Agent Skills docs (3 files)
 │   ├── sdd-methodology/        # SDD methodology documentation (10 files)
 │   ├── sessions/               # Clarification sessions and decisions
 │   ├── bronze_tier_requirements.md
@@ -158,11 +159,16 @@ Prism Mail AI implements an intelligent triage layer where Claude acts as an exe
 
 **CRITICAL PRINCIPLE:** All AI functionality MUST be implemented as Claude Code Agent Skills.
 
-**Agent Skills Documentation:** Complete documentation available in `/docs/agent-skills-io/`:
-- `01_overview.md` - Overview of Agent Skills
-- `02_what_are_skills.md` - What are Agent Skills and why use them
-- `03_specification.md` - Agent Skills specification format
-- `04_using_scripts.md` - How to use Agent Skills scripts
+**Agent Skills Documentation:**
+- `/docs/agent-skills-io/` - Agent Skills implementation guide (4 files):
+  - `01_overview.md` - Overview of Agent Skills
+  - `02_what_are_skills.md` - What are Agent Skills and why use them
+  - `03_specification.md` - Agent Skills specification format
+  - `04_using_scripts.md` - How to use Agent Skills scripts
+- `/docs/claude-docs-agent-skills/` - Claude official documentation (3 files):
+  - `01_overview.md` - Official overview from Claude
+  - `02_best_practices.md` - Best practices for Agent Skills
+  - `03_skills_for_enterprise.md` - Enterprise considerations
 
 **Required Agent Skills:**
 1. **Email Triage Skill** - Analyzes emails and determines routing
@@ -361,6 +367,7 @@ Understanding these mental models will help you work effectively on this project
 
 ### Internal Documentation
 - `/docs/agent-skills-io/` - Agent Skills documentation (4 files)
+- `/docs/claude-docs-agent-skills/` - Claude official Agent Skills docs (3 files)
 - `/docs/sdd-methodology/` - Complete SDD methodology (10 files)
 - `/docs/bronze_tier_requirements.md` - Bronze Tier requirements
 - `/docs/sessions/` - Clarification sessions and decisions
