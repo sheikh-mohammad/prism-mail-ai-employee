@@ -76,6 +76,7 @@ Never skip phases. Never implement before specifications are approved by the use
 prism-mail-ai/
 ├── .claude/                    # Claude Code configurations and skills
 ├── docs/                       # All documentation
+│   ├── agent-skills-io/        # Agent Skills documentation (4 files)
 │   ├── sdd-methodology/        # SDD methodology documentation (10 files)
 │   ├── sessions/               # Clarification sessions and decisions
 │   ├── bronze_tier_requirements.md
@@ -157,6 +158,12 @@ Prism Mail AI implements an intelligent triage layer where Claude acts as an exe
 
 **CRITICAL PRINCIPLE:** All AI functionality MUST be implemented as Claude Code Agent Skills.
 
+**Agent Skills Documentation:** Complete documentation available in `/docs/agent-skills-io/`:
+- `01_overview.md` - Overview of Agent Skills
+- `02_what_are_skills.md` - What are Agent Skills and why use them
+- `03_specification.md` - Agent Skills specification format
+- `04_using_scripts.md` - How to use Agent Skills scripts
+
 **Required Agent Skills:**
 1. **Email Triage Skill** - Analyzes emails and determines routing
 2. **Summary Generation Skill** - Creates concise summaries for FYI items
@@ -223,7 +230,7 @@ The Bronze Tier is complete when:
 
 ### Bronze Tier Workflow (Manual Trigger)
 
-```
+<!--```
 1. Run: python gmail_watcher.py (manually or in background)
 2. Watcher detects email → Creates markdown file in /Inbox
 3. You manually run: claude (in the vault directory)
@@ -231,7 +238,7 @@ The Bronze Tier is complete when:
 5. Prism Mail AI updates Dashboard.md with triage summary
 6. You review /Needs_Action for items requiring attention
 7. Done - demonstrate Prism Mail AI's intelligent triage working
-```
+```-->
 
 **Note:** External actions (sending emails, marking as read in Gmail) are NOT required for Bronze Tier.
 
@@ -353,6 +360,7 @@ Understanding these mental models will help you work effectively on this project
 ## References
 
 ### Internal Documentation
+- `/docs/agent-skills-io/` - Agent Skills documentation (4 files)
 - `/docs/sdd-methodology/` - Complete SDD methodology (10 files)
 - `/docs/bronze_tier_requirements.md` - Bronze Tier requirements
 - `/docs/sessions/` - Clarification sessions and decisions
