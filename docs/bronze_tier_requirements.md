@@ -1,19 +1,19 @@
-# PrismMail - Bronze Tier Requirements Documentation
+# Prism Mail AI - Bronze Tier Requirements Documentation
 
 ## Product Overview
 
-**Product Name:** PrismMail
+**Product Name:** Prism Mail AI
 
 **Tagline:** Your AI Email Employee
 
-**Description:** PrismMail is an AI-powered email triage assistant that intelligently categorizes your inbox, routing emails to the right place so you focus only on what matters. Built on Claude Code and Obsidian, PrismMail acts as your executive assistant, analyzing incoming emails and organizing them by priority and type.
+**Description:** Prism Mail AI is an AI-powered email triage assistant that intelligently categorizes your inbox, routing emails to the right place so you focus only on what matters. Built on Claude Code and Obsidian, Prism Mail AI acts as your executive assistant, analyzing incoming emails and organizing them by priority and type.
 
 ## Overview
-This document outlines the minimum viable deliverables for the Bronze Tier of the Personal AI Employee Hackathon. The Bronze Tier represents the foundational level of implementation that establishes the core functionality of PrismMail.
+This document outlines the minimum viable deliverables for the Bronze Tier of the Personal AI Employee Hackathon. The Bronze Tier represents the foundational level of implementation that establishes the core functionality of Prism Mail AI.
 
 ## Project Philosophy
 
-PrismMail is being developed as a **product**, not just a hackathon submission. While implementing Bronze Tier requirements, we're building a foundation for a scalable, production-ready AI employee system with intelligent triage capabilities.
+Prism Mail AI is being developed as a **product**, not just a hackathon submission. While implementing Bronze Tier requirements, we're building a foundation for a scalable, production-ready AI employee system with intelligent triage capabilities.
 
 ## Project Decisions & Clarifications
 
@@ -21,7 +21,7 @@ PrismMail is being developed as a **product**, not just a hackathon submission. 
 For the Bronze Tier requirement of "one working Watcher script (Gmail OR file system monitoring)", this project will implement the **Gmail watcher** approach.
 
 ### Intelligent Triage Architecture
-PrismMail implements an **intelligent triage layer** where Claude acts as an executive assistant, analyzing and routing emails rather than just detecting them. This goes beyond basic Bronze Tier requirements to create a more useful product.
+Prism Mail AI implements an **intelligent triage layer** where Claude acts as an executive assistant, analyzing and routing emails rather than just detecting them. This goes beyond basic Bronze Tier requirements to create a more useful product.
 
 **Three-Phase Architecture:**
 1. **Detection** - Watcher detects emails and creates files in /Inbox
@@ -70,10 +70,10 @@ PrismMail implements an **intelligent triage layer** where Claude acts as an exe
 1. Run: python gmail_watcher.py (manually or in background)
 2. Watcher detects email → Creates markdown file in /Inbox
 3. You manually run: claude (in the vault directory)
-4. PrismMail (Claude) triages emails from /Inbox → Routes to /Needs_Action, /Summaries, or /Replies
-5. PrismMail updates Dashboard.md with triage summary
+4. Prism Mail AI (Claude) triages emails from /Inbox → Routes to /Needs_Action, /Summaries, or /Replies
+5. Prism Mail AI updates Dashboard.md with triage summary
 6. You review /Needs_Action for items requiring attention
-7. Done - demonstrate PrismMail's intelligent triage working
+7. Done - demonstrate Prism Mail AI's intelligent triage working
 ```
 
 ### External Actions & MCP Servers: NOT Required for Bronze Tier
@@ -205,7 +205,7 @@ PrismMail implements an **intelligent triage layer** where Claude acts as an exe
 
 **Success Criteria Met:**
 - ✓ Watcher detects and creates files
-- ✓ PrismMail (Claude) reads and writes to vault
+- ✓ Prism Mail AI (Claude) reads and writes to vault
 - ✓ Intelligent triage reduces cognitive load
 - ✓ User focuses only on items needing attention
 - ✓ All components work together
@@ -213,7 +213,7 @@ PrismMail implements an **intelligent triage layer** where Claude acts as an exe
 
 ## Bronze Tier Deliverables (Minimum Viable Product)
 
-Based on the hackathon guidelines and PrismMail's enhanced architecture, the following items constitute the Bronze Tier requirements:
+Based on the hackathon guidelines and Prism Mail AI's enhanced architecture, the following items constitute the Bronze Tier requirements:
 
 1. **Obsidian Vault with Dashboard.md and Company_Handbook.md**
    - Create an Obsidian vault structure
@@ -227,7 +227,7 @@ Based on the hackathon guidelines and PrismMail's enhanced architecture, the fol
    - Mark emails as processed to avoid duplicates
    - Include email metadata (sender, subject, timestamp, body)
 
-3. **PrismMail (Claude Code) successfully reading from and writing to the vault**
+3. **Prism Mail AI (Claude Code) successfully reading from and writing to the vault**
    - Configure Claude Code to work with the Obsidian vault
    - Verify reading capability from vault files
    - Verify writing capability to vault files
@@ -236,9 +236,9 @@ Based on the hackathon guidelines and PrismMail's enhanced architecture, the fol
 4. **Enhanced folder structure with intelligent triage**
    - Create folder structure inside the Obsidian vault
    - /Inbox - Untriaged emails from watcher (staging area)
-   - /Needs_Action - Items requiring human attention (after PrismMail triage)
+   - /Needs_Action - Items requiring human attention (after Prism Mail AI triage)
    - /Summaries - FYI items that don't need action (markdown summaries)
-   - /Replies - Draft responses prepared by PrismMail (markdown files, not sent)
+   - /Replies - Draft responses prepared by Prism Mail AI (markdown files, not sent)
    - /Done - Completed/archived items
 
 5. **All AI functionality implemented as Agent Skills**
@@ -262,7 +262,7 @@ The hackathon explicitly requires all AI functionality to be implemented as Agen
 - **Scalability:** Easy to add new skills for Silver/Gold tiers
 - **Maintainability:** Clear separation of concerns
 
-**Example Skills for PrismMail:**
+**Example Skills for Prism Mail AI:**
 - `/triage-email` - Analyzes an email and determines routing
 - `/create-summary` - Generates a summary from email content
 - `/draft-reply` - Creates a draft response to an email
@@ -282,9 +282,9 @@ The hackathon explicitly requires all AI functionality to be implemented as Agen
 - Implement email detection and markdown file creation
 - Test watcher creates files in /Inbox correctly
 
-### Phase 3: PrismMail Integration & Triage Logic
+### Phase 3: Prism Mail AI Integration & Triage Logic
 - Configure Claude Code for vault access
-- Design PrismMail triage logic as Agent Skills (not inline code)
+- Design Prism Mail AI triage logic as Agent Skills (not inline code)
 - Test reading from /Inbox and writing to appropriate folders
 - Validate summary creation and draft reply generation
 - Test Dashboard.md updates
@@ -330,9 +330,9 @@ All folders inside the Obsidian vault:
 
 ## Success Criteria
 - All Bronze Tier deliverables are implemented
-- Working demonstration of PrismMail's intelligent triage workflow
+- Working demonstration of Prism Mail AI's intelligent triage workflow
 - Gmail watcher successfully detects and creates files
-- PrismMail successfully triages and routes emails
+- Prism Mail AI successfully triages and routes emails
 - User can focus on /Needs_Action folder for items requiring attention
 - Proper documentation of implementation
 - Compliance with the specified requirements
