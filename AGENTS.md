@@ -1,210 +1,372 @@
-# Agents Code Rules
+# AGENTS.md - Prism Mail AI Project Guide
 
-This file is generated during init for the selected agent.
+This file provides complete project context and collaboration guidance for all agents working on this repository.
 
-You are an expert AI assistant specializing in Spec-Driven Development (SDD). Your primary goal is to work with the architext to build products.
+## Project Overview
 
-## Task context
+**Product Name:** Prism Mail AI - Your AI Email Employee
 
-**Your Surface:** You operate on a project level, providing guidance to users and executing development tasks via a defined set of tools.
+**Tagline:** Your AI Email Employee
 
-**Your Success is Measured By:**
-- All outputs strictly follow the user intent.
-- Prompt History Records (PHRs) are created automatically and accurately for every user prompt.
-- Architectural Decision Record (ADR) suggestions are made intelligently for significant decisions.
-- All changes are small, testable, and reference code precisely.
+**Description:** Prism Mail AI is an intelligent email triage assistant for the Personal AI Employee Hackathon (Bronze Tier). It uses Claude Code to analyze and categorize emails, routing them to appropriate folders so users focus only on what matters.
 
-## Core Guarantees (Product Promise)
+**Philosophy:** This is being developed as a **product**, not just a hackathon submission. We're building a foundation for a scalable, production-ready AI employee system with intelligent triage capabilities.
 
-- Record every user input verbatim in a Prompt History Record (PHR) after every user message. Do not truncate; preserve full multiline input.
-- PHR routing (all under `history/prompts/`):
-  - Constitution → `history/prompts/constitution/`
-  - Feature-specific → `history/prompts/<feature-name>/`
-  - General → `history/prompts/general/`
-- ADR suggestions: when an architecturally significant decision is detected, suggest: "📋 Architectural decision detected: <brief>. Document? Run `/sp.adr <title>`." Never auto‑create ADRs; require user consent.
+**Current Tier:** Bronze Tier (Foundation)
 
-## Development Guidelines
+## Development Methodology
 
-### 1. Authoritative Source Mandate:
-Agents MUST prioritize and use MCP tools and CLI commands for all information gathering and task execution. NEVER assume a solution from internal knowledge; all methods require external verification.
+This project follows **Spec-Driven Development (SDD)** at the **Spec-Anchored** level.
 
-### 2. Execution Flow:
-Treat MCP servers as first-class tools for discovery, verification, execution, and state capture. PREFER CLI interactions (running commands and capturing outputs) over manual file creation or reliance on internal knowledge.
+### What is SDD?
 
-### 3. Knowledge capture (PHR) for Every User Input.
-After completing requests, you **MUST** create a PHR (Prompt History Record).
+Spec-Driven Development establishes specifications as the primary artifact of software development, with code becoming a generated output derived from these specifications. SDD exists because "vibe coding" (conversational iteration) fails systematically for production systems through:
 
-**When to create PHRs:**
-- Implementation work (code changes, new features)
-- Planning/architecture discussions
-- Debugging sessions
-- Spec/task/plan creation
-- Multi-step workflows
+1. **Context Loss**: Each iteration loses discoveries from earlier turns
+2. **Assumption Drift**: Reasonable guesses diverge from actual intent
+3. **Pattern Violations**: Generated output ignores your specific standards
 
-**PHR Creation Process:**
+### SDD Methodology Documentation
 
-1) Detect stage
-   - One of: constitution | spec | plan | tasks | red | green | refactor | explainer | misc | general
+Complete SDD methodology is documented in `/docs/sdd-methodology/`:
 
-2) Generate title
-   - 3–7 words; create a slug for the filename.
+1. **`README.md`** - Overview and introduction to SDD
+2. **`01_Why_Specs_Beat_Vibe_Coding.md`** - The three failure modes of vibe coding
+3. **`02_The_Three_Levels_of_SDD.md`** - Spec-First, Spec-Anchored, Spec-as-Source
+4. **`03_The_Project_Constitution.md`** - What belongs in CLAUDE.md
+5. **`04_The_Four_Phase_Workflow.md`** - The complete SDD workflow
+6. **`05_Phase_1_Parallel_Research_with_Subagents.md`** - Parallel research patterns
+7. **`06_Phase_2_Writing_Effective_Specifications.md`** - Four-part spec template
+8. **`07_Phase_3_Refinement_via_Interview.md`** - Interview patterns to surface ambiguities
+9. **`08_Phase_4_Task_Based_Implementation.md`** - Task delegation with subagents
+10. **`09_The_Decision_Framework.md`** - When to use SDD vs simpler approaches
 
-2a) Resolve route (all under history/prompts/)
-  - `constitution` → `history/prompts/constitution/`
-  - Feature stages (spec, plan, tasks, red, green, refactor, explainer, misc) → `history/prompts/<feature-name>/` (requires feature context)
-  - `general` → `history/prompts/general/`
+**CRITICAL:** Read these files to understand the development approach before starting any work.
 
-3) Prefer agent‑native flow (no shell)
-   - Read the PHR template from one of:
-     - `.specify/templates/phr-template.prompt.md`
-     - `templates/phr-template.prompt.md`
-   - Allocate an ID (increment; on collision, increment again).
-   - Compute output path based on stage:
-     - Constitution → `history/prompts/constitution/<ID>-<slug>.constitution.prompt.md`
-     - Feature → `history/prompts/<feature-name>/<ID>-<slug>.<stage>.prompt.md`
-     - General → `history/prompts/general/<ID>-<slug>.general.prompt.md`
-   - Fill ALL placeholders in YAML and body:
-     - ID, TITLE, STAGE, DATE_ISO (YYYY‑MM‑DD), SURFACE="agent"
-     - MODEL (best known), FEATURE (or "none"), BRANCH, USER
-     - COMMAND (current command), LABELS (["topic1","topic2",...])
-     - LINKS: SPEC/TICKET/ADR/PR (URLs or "null")
-     - FILES_YAML: list created/modified files (one per line, " - ")
-     - TESTS_YAML: list tests run/added (one per line, " - ")
-     - PROMPT_TEXT: full user input (verbatim, not truncated)
-     - RESPONSE_TEXT: key assistant output (concise but representative)
-     - Any OUTCOME/EVALUATION fields required by the template
-   - Write the completed file with agent file tools (WriteFile/Edit).
-   - Confirm absolute path in output.
+### The Four-Phase SDD Workflow
 
-4) Use sp.phr command file if present
-   - If `.**/commands/sp.phr.*` exists, follow its structure.
-   - If it references shell but Shell is unavailable, still perform step 3 with agent‑native tools.
+This project uses the complete four-phase workflow:
 
-5) Shell fallback (only if step 3 is unavailable or fails, and Shell is permitted)
-   - Run: `.specify/scripts/bash/create-phr.sh --title "<title>" --stage <stage> [--feature <name>] --json`
-   - Then open/patch the created file to ensure all placeholders are filled and prompt/response are embedded.
+```
+Phase 1: Research (Parallel Subagents)
+    ↓ Multiple agents investigate different aspects
+Phase 2: Specification (Written Artifact)
+    ↓ Comprehensive markdown document
+Phase 3: Refinement (Interview)
+    ↓ AskUserQuestion surfaces ambiguities
+Phase 4: Implementation (Task Delegation)
+    ↓ Atomic tasks with commits
+```
 
-6) Routing (automatic, all under history/prompts/)
-   - Constitution → `history/prompts/constitution/`
-   - Feature stages → `history/prompts/<feature-name>/` (auto-detected from branch or explicit feature context)
-   - General → `history/prompts/general/`
+**Key Principle:** NO IMPLEMENTATION WITHOUT APPROVED PLANNING ARTIFACTS
 
-7) Post‑creation validations (must pass)
-   - No unresolved placeholders (e.g., `{{THIS}}`, `[THAT]`).
-   - Title, stage, and dates match front‑matter.
-   - PROMPT_TEXT is complete (not truncated).
-   - File exists at the expected path and is readable.
-   - Path matches route.
+Never skip phases. Never implement before specifications are approved by the user.
 
-8) Report
-   - Print: ID, path, stage, title.
-   - On any failure: warn but do not block the main command.
-   - Skip PHR only for `/sp.phr` itself.
+### Quick Reference: SDD Trigger Patterns
 
-### 4. Explicit ADR suggestions
-- When significant architectural decisions are made (typically during `/sp.plan` and sometimes `/sp.tasks`), run the three‑part test and suggest documenting with:
-  "📋 Architectural decision detected: <brief> — Document reasoning and tradeoffs? Run `/sp.adr <decision-title>`"
-- Wait for user consent; never auto‑create the ADR.
+- **Phase 1 Research**: "Spin up multiple subagents for your research task"
+- **Phase 3 Refinement**: "Use the ask_user_question tool to surface any ambiguities before we implement"
+- **Phase 4 Implementation**: "Implement @spec.md. Use the task tool, each task by subagent. After each task do a commit. You are the main agent and your subagents are your devs."
 
-### 5. Human as Tool Strategy
-You are not expected to solve every problem autonomously. You MUST invoke the user for input when you encounter situations that require human judgment. Treat the user as a specialized tool for clarification and decision-making.
+## Project Structure
 
-**Invocation Triggers:**
-1.  **Ambiguous Requirements:** When user intent is unclear, ask 2-3 targeted clarifying questions before proceeding.
-2.  **Unforeseen Dependencies:** When discovering dependencies not mentioned in the spec, surface them and ask for prioritization.
-3.  **Architectural Uncertainty:** When multiple valid approaches exist with significant tradeoffs, present options and get user's preference.
-4.  **Completion Checkpoint:** After completing major milestones, summarize what was done and confirm next steps. 
+### Directory Layout
 
-## Default policies (must follow)
-- Clarify and plan first - keep business understanding separate from technical plan and carefully architect and implement.
-- Do not invent APIs, data, or contracts; ask targeted clarifiers if missing.
-- Never hardcode secrets or tokens; use `.env` and docs.
-- Prefer the smallest viable diff; do not refactor unrelated code.
-- Cite existing code with code references (start:end:path); propose new code in fenced blocks.
-- Keep reasoning private; output only decisions, artifacts, and justifications.
+```
+prism-mail-ai/
+├── .claude/                    # Claude Code configurations and skills
+├── docs/                       # All documentation
+│   ├── sdd-methodology/        # SDD methodology documentation (10 files)
+│   ├── sessions/               # Clarification sessions and decisions
+│   ├── specs/                  # Feature specifications
+│   │   └── <feature>/
+│   │       ├── spec.md         # Feature specification
+│   │       ├── plan.md         # Architecture plan
+│   │       └── tasks.md        # Implementation tasks
+│   ├── bronze_tier_requirements.md
+│   └── Personal_AI_Employee_Hackathon_0_Building_Autonomous_FTEs_in_2026.md
+├── src/                        # Source code (to be created)
+├── tests/                      # Test files (to be created)
+├── AGENTS.md                   # This file - Project guide
+├── CLAUDE.md                   # Project constitution (governance rules)
+└── README.md                   # Project README
+```
 
-### Execution contract for every request
-1) Confirm surface and success criteria (one sentence).
-2) List constraints, invariants, non‑goals.
-3) Produce the artifact with acceptance checks inlined (checkboxes or tests where applicable).
-4) Add follow‑ups and risks (max 3 bullets).
-5) Create PHR in appropriate subdirectory under `history/prompts/` (constitution, feature-name, or general).
-6) If plan/tasks identified decisions that meet significance, surface ADR suggestion text as described above.
+### Obsidian Vault Structure (To Be Created)
 
-### Minimum acceptance criteria
-- Clear, testable acceptance criteria included
-- Explicit error paths and constraints stated
-- Smallest viable change; no unrelated edits
-- Code references to modified/inspected files where relevant
+The Obsidian vault will be created via Obsidian MCP with this structure:
 
-## Architect Guidelines (for planning)
+```
+vault/
+├── Inbox/              # Untriaged emails from watcher (staging area)
+├── Needs_Action/       # Items requiring human attention (after triage)
+├── Summaries/          # FYI summaries (markdown files)
+├── Replies/            # Draft responses (markdown files, not sent in Bronze)
+├── Done/               # Completed/archived items
+├── Dashboard.md        # Triage statistics and recent activity
+└── Company_Handbook.md # Rules of engagement and triage criteria
+```
 
-Instructions: As an expert architect, generate a detailed architectural plan for [Project Name]. Address each of the following thoroughly.
+## Technology Stack
 
-1. Scope and Dependencies:
-   - In Scope: boundaries and key features.
-   - Out of Scope: explicitly excluded items.
-   - External Dependencies: systems/services/teams and ownership.
+### Language & Environment
+- **Python 3.13+** - Primary language
+- **UV** - Package management and virtual environment creation
+- **Gmail API** - Email detection (credentials provided by user)
 
-2. Key Decisions and Rationale:
-   - Options Considered, Trade-offs, Rationale.
-   - Principles: measurable, reversible where possible, smallest viable change.
+### AI & Knowledge Base
+- **Claude Code (Claude Sonnet 4.6)** - AI reasoning engine
+- **Obsidian** - Local markdown vault (created via Obsidian MCP)
+- **Claude Code Agent Skills** - All email-related AI functionality
 
-3. Interfaces and API Contracts:
-   - Public APIs: Inputs, Outputs, Errors.
-   - Versioning Strategy.
-   - Idempotency, Timeouts, Retries.
-   - Error Taxonomy with status codes.
+### APIs & Integration
+- **Gmail API (read-only)** - Email detection
+- **Obsidian MCP** - Vault creation and management
 
-4. Non-Functional Requirements (NFRs) and Budgets:
-   - Performance: p95 latency, throughput, resource caps.
-   - Reliability: SLOs, error budgets, degradation strategy.
-   - Security: AuthN/AuthZ, data handling, secrets, auditing.
-   - Cost: unit economics.
+**Important Notes:**
+- User will provide Gmail API credentials
+- Vault will be created using Obsidian MCP
+- All AI functionality MUST be implemented as Agent Skills (not inline code)
 
-5. Data Management and Migration:
-   - Source of Truth, Schema Evolution, Migration and Rollback, Data Retention.
+## Architecture Overview
 
-6. Operational Readiness:
-   - Observability: logs, metrics, traces.
-   - Alerting: thresholds and on-call owners.
-   - Runbooks for common tasks.
-   - Deployment and Rollback strategies.
-   - Feature Flags and compatibility.
+### Three-Phase Triage Architecture
 
-7. Risk Analysis and Mitigation:
-   - Top 3 Risks, blast radius, kill switches/guardrails.
+Prism Mail AI implements an intelligent triage layer where Claude acts as an executive assistant:
 
-8. Evaluation and Validation:
-   - Definition of Done (tests, scans).
-   - Output Validation for format/requirements/safety.
+1. **Detection Phase**
+   - Gmail watcher script monitors for unread emails
+   - Creates markdown files in `/Inbox` folder
+   - No AI logic in watcher (pure detection)
 
-9. Architectural Decision Record (ADR):
-   - For each significant decision, create an ADR and link it.
+2. **Triage Phase**
+   - Prism Mail AI (Claude) reads emails from `/Inbox`
+   - Analyzes content, sender, urgency, and context
+   - Routes to appropriate folders:
+     - `/Needs_Action` - Requires human attention
+     - `/Summaries` - FYI items (summarized)
+     - `/Replies` - Draft responses prepared
+     - `/Done` - Completed/archived
+   - Updates `Dashboard.md` with triage summary
 
-### Architecture Decision Records (ADR) - Intelligent Suggestion
+3. **Action Phase**
+   - User reviews `/Needs_Action` for items requiring attention
+   - User can review summaries and draft replies
+   - Focus only on what matters
 
-After design/architecture work, test for ADR significance:
+### Agent Skills Architecture
 
-- Impact: long-term consequences? (e.g., framework, data model, API, security, platform)
-- Alternatives: multiple viable options considered?
-- Scope: cross‑cutting and influences system design?
+**CRITICAL PRINCIPLE:** All AI functionality MUST be implemented as Claude Code Agent Skills.
 
-If ALL true, suggest:
-📋 Architectural decision detected: [brief-description]
-   Document reasoning and tradeoffs? Run `/sp.adr [decision-title]`
+**Required Agent Skills:**
+1. **Email Triage Skill** - Analyzes emails and determines routing
+2. **Summary Generation Skill** - Creates concise summaries for FYI items
+3. **Draft Reply Skill** - Generates draft responses
+4. **Dashboard Update Skill** - Updates Dashboard.md with statistics
 
-Wait for consent; never auto-create ADRs. Group related decisions (stacks, authentication, deployment) into one ADR when appropriate.
+**Why Agent Skills?**
+- Reusable across features
+- Testable in isolation
+- Clear separation of concerns
+- Scalable for Silver/Gold tiers
 
-## Basic Project Structure
+### Separation of Concerns
 
-- `.specify/memory/constitution.md` — Project principles
-- `specs/<feature>/spec.md` — Feature requirements
-- `specs/<feature>/plan.md` — Architecture decisions
-- `specs/<feature>/tasks.md` — Testable tasks with cases
-- `history/prompts/` — Prompt History Records
-- `history/adr/` — Architecture Decision Records
-- `.specify/` — SpecKit Plus templates and scripts
+- **Watcher**: Detection only (no AI logic)
+- **Agent Skills**: Intelligence layer (triage, summarization, drafting)
+- **Obsidian Vault**: Knowledge base and state management
+- **User**: Final decision-making and action
 
-## Code Standards
-See `.specify/memory/constitution.md` for code quality, testing, performance, security, and architecture principles.
+## Bronze Tier Requirements
+
+The Bronze Tier represents the minimum viable deliverable for the hackathon.
+
+### Required Deliverables
+
+1. **Obsidian Vault with Required Structure**
+   - All folders created: Inbox, Needs_Action, Summaries, Replies, Done
+   - Dashboard.md exists and is functional
+   - Company_Handbook.md exists with triage criteria
+
+2. **Gmail Watcher Script**
+   - Monitors Gmail for unread emails
+   - Creates markdown files in /Inbox
+   - Includes email metadata (sender, subject, timestamp, body)
+   - Marks emails as processed to avoid duplicates
+
+3. **Prism Mail AI (Claude Code) Integration**
+   - Successfully reads from vault
+   - Successfully writes to vault
+   - Can access all folders
+
+4. **Agent Skills Implementation**
+   - All AI functionality implemented as Agent Skills
+   - Skills are invocable and testable
+   - Skills follow SDD methodology
+
+5. **Intelligent Triage Workflow**
+   - Emails are analyzed and routed correctly
+   - Summaries are generated for FYI items
+   - Draft replies are created when appropriate
+   - Dashboard is updated with statistics
+
+### Success Criteria
+
+The Bronze Tier is complete when:
+- ✓ Obsidian vault structure created with all required folders
+- ✓ Dashboard.md and Company_Handbook.md exist in vault
+- ✓ Gmail watcher script detects emails and creates files in /Inbox
+- ✓ Prism Mail AI (Claude Code) successfully reads from and writes to vault
+- ✓ All AI functionality implemented as Agent Skills
+- ✓ Intelligent triage routes emails to appropriate folders
+- ✓ User can focus on /Needs_Action for items requiring attention
+- ✓ All components work together in end-to-end workflow
+
+### Bronze Tier Workflow (Manual Trigger)
+
+```
+1. Run: python gmail_watcher.py (manually or in background)
+2. Watcher detects email → Creates markdown file in /Inbox
+3. You manually run: claude (in the vault directory)
+4. Prism Mail AI (Claude) triages emails from /Inbox → Routes to appropriate folders
+5. Prism Mail AI updates Dashboard.md with triage summary
+6. You review /Needs_Action for items requiring attention
+7. Done - demonstrate Prism Mail AI's intelligent triage working
+```
+
+**Note:** External actions (sending emails, marking as read in Gmail) are NOT required for Bronze Tier.
+
+## How to Work on This Project
+
+### Before Starting Any Task
+
+1. **Read `CLAUDE.md`** - Understand the constitution and governance rules
+2. **Read this file (`AGENTS.md`)** - Understand the project context
+3. **Read `/docs/sdd-methodology/`** - Understand the development methodology
+4. **Check `/docs/bronze_tier_requirements.md`** - Understand current requirements
+
+### Development Workflow
+
+**CRITICAL:** This project uses Spec-Anchored SDD. You MUST follow the four-phase workflow:
+
+1. **Phase 1: Research**
+   - Use parallel subagents to investigate
+   - Document findings in research notes
+   - Identify patterns, constraints, and approaches
+
+2. **Phase 2: Specification**
+   - Write comprehensive spec.md using four-part template
+   - Include constraints and success criteria
+   - Store in `/docs/specs/<feature>/spec.md`
+   - Get user approval before proceeding
+
+3. **Phase 3: Refinement**
+   - Use ask_user_question to surface ambiguities
+   - Update spec with decisions
+   - Ensure spec is unambiguous
+
+4. **Phase 4: Implementation**
+   - Extract tasks from spec checklist
+   - Use task tool with subagent delegation
+   - Commit atomically after each task
+   - Update spec if implementation reveals new insights
+
+### Git Workflow
+
+**Atomic Commits Required:**
+- Commit immediately after completing each task
+- Push to remote after each commit
+- Use descriptive commit messages
+
+**Commit Message Format:**
+```
+<type>(<scope>): <description>
+
+<optional body>
+
+Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>
+```
+
+**When to Commit:**
+- After implementing a feature or task
+- After fixing a bug
+- After updating documentation
+- After refactoring code
+- After adding tests
+
+Do NOT ask for permission to commit and push - do it automatically.
+
+### Decision Framework
+
+Use this logic to determine when to use full SDD:
+
+```
+IF files_affected > 5 OR requirements_unclear OR learning_new_tech:
+    Use full SDD (all four phases)
+ELSE IF single_file AND bug_fix:
+    Skip SDD (direct implementation)
+ELSE:
+    Use lightweight spec (constraints + success criteria only)
+```
+
+**For Prism Mail AI, use full SDD when:**
+- Implementing new Agent Skills (unclear requirements, learning patterns)
+- Gmail watcher implementation (multiple files, integration complexity)
+- Obsidian vault structure (architectural decisions)
+- Triage logic design (multiple approaches possible)
+
+**Skip SDD for:**
+- Single-file bug fixes
+- Documentation updates
+- Configuration changes
+
+## Human as Tool Strategy
+
+You are not expected to solve every problem autonomously. Invoke the user for input when you encounter:
+
+1. **Ambiguous Requirements**: Ask 2-3 targeted clarifying questions
+2. **Unforeseen Dependencies**: Surface them and ask for prioritization
+3. **Architectural Uncertainty**: Present options with tradeoffs
+4. **Completion Checkpoint**: Summarize what was done, confirm next steps
+
+## Key Mental Models
+
+Understanding these mental models will help you work effectively on this project:
+
+1. **Specs vs Constitution**
+   - Specs describe features (blueprints for one building)
+   - Constitution defines structural codes (rules every building must meet)
+
+2. **Planning vs Execution Separation**
+   - SDD front-loads all planning
+   - Implementation becomes execution of a well-understood plan
+
+3. **Context Isolation > Speed**
+   - Parallel research provides genuinely independent perspectives
+   - Task delegation prevents context pollution
+
+4. **10x Cost Multiplier**
+   - Ambiguities cost 5 min during spec
+   - 10 min during interview
+   - 30 min during coding
+   - 2-4 hours after commit
+   - 8-16 hours in production
+
+## References
+
+### Internal Documentation
+- `/docs/sdd-methodology/` - Complete SDD methodology (10 files)
+- `/docs/bronze_tier_requirements.md` - Bronze Tier requirements
+- `/docs/sessions/` - Clarification sessions and decisions
+- `CLAUDE.md` - Project constitution (governance rules)
+
+### External References
+- Osmani, A. (2025). "How to write a good spec for AI agents"
+- Böckeler, B. (2025). "Understanding Spec-Driven-Development: Kiro, spec-kit, and Tessl"
+- GitHub. (2025). "Spec-driven development with AI"
+- Anthropic. (2025). "Claude Code: Best practices for agentic coding"
+- Panaversity Research Paper: "Spec-Driven Development with Claude Code" (February 2026)
+
+---
+
+**Welcome to Prism Mail AI!** This is a product, not just a hackathon submission. Build with production quality, maintainability, and scalability in mind.
