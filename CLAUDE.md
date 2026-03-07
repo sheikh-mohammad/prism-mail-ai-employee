@@ -1,4 +1,4 @@
-# CLAUDE.md - Prism Mail AI Project Constitution
+# CLAUDE.md - Prism Mail AI Employee Project Constitution
 
 This file defines the governance rules and principles for this project.
 
