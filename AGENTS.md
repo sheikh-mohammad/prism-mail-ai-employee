@@ -101,7 +101,7 @@ prism-mail-ai-employee/
 
 ### Obsidian Vault Structure (To Be Created)
 
-The Obsidian vault will be created via Obsidian MCP with this structure:
+The Obsidian vault will be created by user with this structure:
 
 ```
 AI_Employee_Vault/
@@ -123,16 +123,15 @@ AI_Employee_Vault/
 
 ### AI & Knowledge Base
 - **Claude Code (Claude Sonnet 4.6)** - AI reasoning engine
-- **Obsidian** - Local markdown vault (created via Obsidian MCP)
+- **Obsidian** - Local markdown vault (created by User)
 - **Claude Code Agent Skills** - All email-related AI functionality
 
 ### APIs & Integration
 - **Gmail API (read-only)** - Email detection
-- **Obsidian MCP** - Vault creation and management
 
 **Important Notes:**
 - User will provide Gmail API credentials
-- Vault will be created using Obsidian MCP
+- Vault will be created by user
 - All AI functionality MUST be implemented as Agent Skills (not inline code)
 
 ## Architecture Overview

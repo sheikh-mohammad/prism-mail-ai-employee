@@ -48,3 +48,6 @@ This file defines the governance rules and principles for this project.
 ---
 
 **Note:** This constitution is intentionally minimal at project start. Principles will be added as architectural decisions are made and patterns emerge.
+
+---
+
