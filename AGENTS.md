@@ -87,7 +87,13 @@ prism-mail-ai-employee/
 │       ├── spec.md             # Feature specification
 │       ├── plan.md             # Plan created by Claude using plan mode
 │       └── tasks.md            # Tasks created by Claude using task tools
-├── src/                        # Source code (to be created)
+├── src/                        # Source code
+│   ├── authenticate_gmail.py   # Gmail authentication logic
+│   └── watchers/               # Watcher implementations
+│       ├── __init__.py         # Exports watcher classes
+│       ├── base_watcher.py     # Base class for all watchers
+│       ├── gmail_watcher.py    # Gmail-specific watcher implementation
+│       └── .gmail_processed_ids # Tracking file for processed emails
 ├── AGENTS.md                   # This file - Project guide
 ├── CLAUDE.md                   # Project constitution (governance rules)
 └── README.md                   # Project README
