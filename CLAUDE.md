@@ -1,3 +1,11 @@
+<!-- Sync Impact Report:
+Version change: 0.0.0 → 1.0.0 (Add CLAUDE.md as constitution)
+Added sections: none
+Modified sections: none
+Removed sections: none
+Follow-up TODOs: none
+-->
+
 # CLAUDE.md - Prism Mail AI Employee Project Constitution
 
 This file defines the governance rules and principles for this project.
@@ -51,3 +59,4 @@ This file defines the governance rules and principles for this project.
 
 ---
 
+**Version**: 1.0.0 | **Ratified**: 2026-01-16 | **Last Amended**: 2026-03-10
