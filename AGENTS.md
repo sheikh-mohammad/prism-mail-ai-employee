@@ -1,14 +1,14 @@
-# AGENTS.md - Prism Mail AI Employee Project Guide
+# AGENTS.md - Prism Digital Mail FTE Project Guide
 
 This file provides complete project context and collaboration guidance for all agents working on this repository.
 
 ## Project Overview
 
-**Product Name:** Prism Mail AI Employee - Your AI Email Employee
+**Product Name:** Prism Digital Mail FTE - Your AI Email Employee
 
-**Tagline:** Your AI Email Employee
+**Tagline:** Your AI Email Employee (Digital FTE - Full-Time Equivalent)
 
-**Description:** Prism Mail AI Employee is an intelligent email triage assistant for the Personal AI Employee Hackathon (Bronze Tier). It uses Claude Code to analyze and categorize emails, routing them to appropriate folders so users focus only on what matters.
+**Description:** Prism Digital Mail FTE is an intelligent email triage assistant for the Personal AI Employee Hackathon (Bronze Tier). It uses Claude Code to analyze and categorize emails, routing them to appropriate folders so users focus only on what matters.
 
 **Philosophy:** This is being developed as a **product**, not just a hackathon submission. We're building a foundation for a scalable, production-ready AI employee system with intelligent triage capabilities.
 
@@ -20,7 +20,7 @@ This project follows **Spec-Driven Development (SDD)** at the **Spec-Anchored** 
 
 ### What is SDD?
 
-Spec-Driven Development establishes specifications as the primary artifact of software development, with code becoming a generated output derived from these specifications. SDD exists because "vibe coding" (conversational iteration) fails systematically for production systems through:
+Spec-Driven Development treats specifications as the primary artifact of software development, with code generated from these specifications. SDD exists because "vibe coding" (conversational iteration) fails systematically for production systems through:
 
 1. **Context Loss**: Each iteration loses discoveries from earlier turns
 2. **Assumption Drift**: Reasonable guesses diverge from actual intent
@@ -363,7 +363,7 @@ Understanding these mental models will help you work effectively on this project
 
 4. **10x Cost Multiplier**
    - Ambiguities cost 5 min during spec
-   - 10 min during interview
+   - 10 min during the interview
    - 30 min during coding
    - 2-4 hours after commit
    - 8-16 hours in production
