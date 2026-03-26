@@ -1,12 +1,12 @@
 <!-- Sync Impact Report:
-Version change: 0.0.0 → 1.0.0 (Add CLAUDE.md as constitution)
+Version change: 1.1.0 → 1.1.0 (Update the Changelog Section to add mutiple logs)
 Added sections: none
-Modified sections: none
+Modified sections: Changelog
 Removed sections: none
 Follow-up TODOs: none
 -->
 
-# CLAUDE.md - Prism Mail AI Employee Project Constitution
+# CLAUDE.md - Prism Digital FTE Project Constitution
 
 This file defines the governance rules and principles for this project.
 
@@ -59,4 +59,15 @@ This file defines the governance rules and principles for this project.
 
 ---
 
-**Version**: 1.0.0 | **Ratified**: 2026-01-16 | **Last Amended**: 2026-03-10
+## Changelog
+
+### v1.1.0
+- Update the Changelog Section to add mutiple logs
+
+### v1.0.1
+- Renamed Title from Prism Digital Mail FTE to Prism Digital FTE
+
+### v1.0.0
+- Add CLAUDE.md as initial constitution
+
+**Version**: 1.1.0 | **Ratified**: 2026-01-16 | **Last Amended**: 2026-03-10
