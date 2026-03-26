@@ -1,14 +1,14 @@
-# AGENTS.md - Prism Mail AI Employee Project Guide
+# AGENTS.md - Prism Digital FTE Project Guide
 
 This file provides complete project context and collaboration guidance for all agents working on this repository.
 
 ## Project Overview
 
-**Product Name:** Prism Mail AI Employee - Your AI Email Employee
+**Product Name:** Prism Digital FTE - Your AI Email Employee
 
 **Tagline:** Your AI Email Employee
 
-**Description:** Prism Mail AI Employee is an intelligent email triage assistant for the Personal AI Employee Hackathon (Bronze Tier). It uses Claude Code to analyze and categorize emails, routing them to appropriate folders so users focus only on what matters.
+**Description:** Prism Digital FTE is an intelligent email triage assistant for the Personal AI Employee Hackathon (Bronze Tier). It uses Claude Code to analyze and categorize emails, routing them to appropriate folders so users focus only on what matters.
 
 **Philosophy:** This is being developed as a **product**, not just a hackathon submission. We're building a foundation for a scalable, production-ready AI employee system with intelligent triage capabilities.
 
@@ -138,7 +138,7 @@ AI_Employee_Vault/
 
 ### Three-Phase Triage Architecture
 
-Prism Mail AI Employee implements an intelligent triage layer where Claude acts as an executive assistant:
+Prism Digital FTE implements an intelligent triage layer where Claude acts as an executive assistant:
 
 1. **Detection Phase**
    - Gmail watcher script monitors for unread emails
@@ -146,7 +146,7 @@ Prism Mail AI Employee implements an intelligent triage layer where Claude acts 
    - No AI logic in watcher (pure detection)
 
 2. **Triage Phase**
-   - Prism Mail AI Employee (Claude) reads emails from `/Inbox`
+   - Prism Digital FTE (Claude) reads emails from `/Inbox`
    - Analyzes content, sender, urgency, and context
    - Routes to appropriate folders:
      - `/Needs_Action` - Requires human attention
@@ -211,7 +211,7 @@ The Bronze Tier represents the minimum viable deliverable for the hackathon.
    - Includes email metadata (sender, subject, timestamp, body)
    - Marks emails as processed to avoid duplicates
 
-3. **Prism Mail AI Employee (Claude Code) Integration**
+3. **Prism Digital FTE (Claude Code) Integration**
    - Successfully reads from vault
    - Successfully writes to vault
    - Can access all folders
@@ -233,7 +233,7 @@ The Bronze Tier is complete when:
 - ✓ Obsidian vault structure created with all required folders
 - ✓ Dashboard.md and Company_Handbook.md exist in vault
 - ✓ Gmail watcher script detects emails and creates files in /Inbox
-- ✓ Prism Mail AI Employee (Claude Code) successfully reads from and writes to vault
+- ✓ Prism Digital FTE (Claude Code) successfully reads from and writes to vault
 - ✓ All AI functionality implemented as Agent Skills
 - ✓ Intelligent triage routes emails to appropriate folders
 - ✓ User can focus on /Needs_Action for items requiring attention
@@ -245,10 +245,10 @@ The Bronze Tier is complete when:
 1. Run: python gmail_watcher.py (manually or in background)
 2. Watcher detects email → Creates markdown file in /Inbox
 3. You manually run: claude (in the vault directory)
-4. Prism Mail AI Employee (Claude) triages emails from /Inbox → Routes to appropriate folders
-5. Prism Mail AI Employee updates Dashboard.md with triage summary
+4. Prism Digital FTE (Claude) triages emails from /Inbox → Routes to appropriate folders
+5. Prism Digital FTE updates Dashboard.md with triage summary
 6. You review /Needs_Action for items requiring attention
-7. Done - demonstrate Prism Mail AI Employee's intelligent triage working
+7. Done - demonstrate Prism Digital FTE's intelligent triage working
 ```-->
 
 **Note:** External actions (sending emails, marking as read in Gmail) are NOT required for Bronze Tier.
@@ -325,7 +325,7 @@ ELSE:
     Use lightweight spec (constraints + success criteria only)
 ```
 
-**For Prism Mail AI Employee, use full SDD when:**
+**For Prism Digital FTE, use full SDD when:**
 - Implementing new Agent Skills (unclear requirements, learning patterns)
 - Gmail watcher implementation (multiple files, integration complexity)
 - Obsidian vault structure (architectural decisions)
@@ -387,4 +387,4 @@ Understanding these mental models will help you work effectively on this project
 
 ---
 
-**Welcome to Prism Mail AI Employee!** This is a product, not just a hackathon submission. Build with production quality, maintainability, and scalability in mind.
+**Welcome to Prism Digital FTE!** This is a product, not just a hackathon submission. Build with production quality, maintainability, and scalability in mind.
