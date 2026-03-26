@@ -73,7 +73,7 @@ Never skip phases. Never implement before specifications are approved by the use
 ### Directory Layout
 
 ```
-prism-mail-ai-employee/
+prism-digital-fte/
 ├── .claude/                    # Claude Code configurations and skills
 ├── docs/                       # All documentation
 │   ├── agent-skills-io/        # Agent Skills documentation (4 files)
@@ -242,7 +242,7 @@ The Bronze Tier is complete when:
 ### Bronze Tier Workflow (Manual Trigger)
 
 <!--```
-1. Run: python gmail_watcher.py (manually or in background)
+1. Run: uv run gmail_watcher.py (manually or in background)
 2. Watcher detects email → Creates markdown file in /Inbox
 3. You manually run: claude (in the vault directory)
 4. Prism Digital FTE (Claude) triages emails from /Inbox → Routes to appropriate folders
