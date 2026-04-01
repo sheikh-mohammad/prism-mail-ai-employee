@@ -1,8 +1,8 @@
-# Prism Digital FTE - Company Handbook
+# Prism Digital Mail FTE - Company Handbook
 
 ## Introduction
 
-This handbook defines the rules of engagement and triage criteria for the Prism Digital FTE. It establishes the operational guidelines for how emails are categorized and processed.
+This handbook defines the rules of engagement and triage criteria for the Prism Digital Mail FTE. It establishes the operational guidelines for how emails are categorized and processed.
 
 ## Core Principles
 
@@ -96,4 +96,4 @@ This handbook defines the rules of engagement and triage criteria for the Prism 
 - Quarterly evaluation of system performance
 
 ---
-*Last Updated: 2026-03-12*
+*Last Updated: 2026-04-01*

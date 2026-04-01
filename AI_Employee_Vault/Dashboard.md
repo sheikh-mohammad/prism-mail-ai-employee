@@ -1,4 +1,4 @@
-# Prism Digital FTE Dashboard
+# Prism Digital Mail FTE Dashboard
 
 ## Recent Activity
 
@@ -25,7 +25,7 @@
 
 ## Recent Triage Reports
 
-*No triage reports yet. Run the Prism Digital FTE to process emails.*
+*No triage reports yet. Run the Prism Digital Mail FTE to process emails.*
 
 ---
-*Dashboard auto-updated by Prism Digital FTE*
+*Dashboard auto-updated by Prism Digital Mail FTE*

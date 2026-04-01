@@ -1,12 +1,12 @@
 <!-- Sync Impact Report:
-Version change: 1.1.0 → 1.1.0 (Update the Changelog Section to add mutiple logs)
+Version change: 1.1.1 → 1.1.1 (Renamed Title)
 Added sections: none
-Modified sections: Changelog
+Modified sections: Changelog, Version, Title
 Removed sections: none
 Follow-up TODOs: none
 -->
 
-# CLAUDE.md - Prism Digital FTE Project Constitution
+# CLAUDE.md - Prism Digital Mail FTE Project Constitution
 
 This file defines the governance rules and principles for this project.
 
@@ -61,6 +61,9 @@ This file defines the governance rules and principles for this project.
 
 ## Changelog
 
+### v1.1.1
+- Renamed Title from Prism Digital FTE to Again Prism Digital Mail FTE
+
 ### v1.1.0
 - Update the Changelog Section to add mutiple logs
 
@@ -70,4 +73,4 @@ This file defines the governance rules and principles for this project.
 ### v1.0.0
 - Add CLAUDE.md as initial constitution
 
-**Version**: 1.1.0 | **Ratified**: 2026-01-16 | **Last Amended**: 2026-03-10
+**Version**: 1.1.1 | **Ratified**: 2026-01-16 | **Last Amended**: 2026-04-01

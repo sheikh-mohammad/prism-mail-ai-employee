@@ -1,19 +1,19 @@
-# Prism Mail AI Employee - Bronze Tier Requirements Documentation
+# Prism Digital Mail FTE - Bronze Tier Requirements Documentation
 
 ## Product Overview
 
-**Product Name:** Prism Mail AI Employee
+**Product Name:** Prism Digital Mail FTE
 
 **Tagline:** Your AI Email Employee
 
-**Description:** Prism Mail AI Employee is an AI-powered email triage assistant that intelligently categorizes your inbox, routing emails to the right place so you focus only on what matters. Built on Claude Code and Obsidian, Prism Mail AI Employee acts as your executive assistant, analyzing incoming emails and organizing them by priority and type.
+**Description:** Prism Digital Mail FTE is an AI-powered email triage assistant that intelligently categorizes your inbox, routing emails to the right place so you focus only on what matters. Built on Claude Code and Obsidian, Prism Digital Mail FTE acts as your executive assistant, analyzing incoming emails and organizing them by priority and type.
 
 ## Overview
-This document outlines the minimum viable deliverables for the Bronze Tier of the Personal AI Employee Hackathon. The Bronze Tier represents the foundational level of implementation that establishes the core functionality of Prism Mail AI Employee.
+This document outlines the minimum viable deliverables for the Bronze Tier of the Personal AI Employee Hackathon. The Bronze Tier represents the foundational level of implementation that establishes the core functionality of Prism Digital Mail FTE.
 
 ## Project Philosophy
 
-Prism Mail AI Employee is being developed as a **product**, not just a hackathon submission. While implementing Bronze Tier requirements, we're building a foundation for a scalable, production-ready AI employee system with intelligent triage capabilities.
+Prism Digital Mail FTE is being developed as a **product**, not just a hackathon submission. While implementing Bronze Tier requirements, we're building a foundation for a scalable, production-ready AI employee system with intelligent triage capabilities.
 
 ## Project Decisions & Clarifications
 
@@ -21,7 +21,7 @@ Prism Mail AI Employee is being developed as a **product**, not just a hackathon
 For the Bronze Tier requirement of "one working Watcher script (Gmail OR file system monitoring)", this project will implement the **Gmail watcher** approach.
 
 ### Intelligent Triage Architecture
-Prism Mail AI Employee implements an **intelligent triage layer** where Claude acts as an executive assistant, analyzing and routing emails rather than just detecting them. This goes beyond basic Bronze Tier requirements to create a more useful product.
+Prism Digital Mail FTE implements an **intelligent triage layer** where Claude acts as an executive assistant, analyzing and routing emails rather than just detecting them. This goes beyond basic Bronze Tier requirements to create a more useful product.
 
 **Three-Phase Architecture:**
 1. **Detection** - Watcher detects emails and creates files in /Inbox
@@ -73,10 +73,10 @@ The Obsidian vault structure has been successfully created with all required fol
 1. Run: python gmail_watcher.py (manually or in background)
 2. Watcher detects email → Creates markdown file in /Inbox
 3. You manually run: claude (in the vault directory)
-4. Prism Mail AI Employee (Claude) triages emails from /Inbox → Routes to /Needs_Action, /Summaries, or /Replies
-5. Prism Mail AI Employee updates Dashboard.md with triage summary
+4. Prism Digital Mail FTE (Claude) triages emails from /Inbox → Routes to /Needs_Action, /Summaries, or /Replies
+5. Prism Digital Mail FTE updates Dashboard.md with triage summary
 6. You review /Needs_Action for items requiring attention
-7. Done - demonstrate Prism Mail AI Employee's intelligent triage working
+7. Done - demonstrate Prism Digital Mail FTE's intelligent triage working
 ```
 
 ### External Actions & MCP Servers: NOT Required for Bronze Tier
@@ -218,7 +218,7 @@ The Obsidian vault has been successfully created with the complete folder struct
 
 **Success Criteria Met:**
 - ✓ Watcher detects and creates files
-- ✓ Prism Mail AI Employee (Claude) reads and writes to vault
+- ✓ Prism Digital Mail FTE (Claude) reads and writes to vault
 - ✓ Intelligent triage reduces cognitive load
 - ✓ User focuses only on items needing attention
 - ✓ All components work together
@@ -226,14 +226,14 @@ The Obsidian vault has been successfully created with the complete folder struct
 
 ## Bronze Tier Deliverables (Minimum Viable Product)
 
-Based on the hackathon guidelines and Prism Mail AI Employee's enhanced architecture, the following items constitute the Bronze Tier requirements:
+Based on the hackathon guidelines and Prism Digital Mail FTE's enhanced architecture, the following items constitute the Bronze Tier requirements:
 
 ### Vault Structure Verification
 The Obsidian vault structure has been successfully created with all required folders:
 - `/Inbox` - Untriaged emails from watcher (staging area)
-- `/Needs_Action` - Items requiring human attention (after Prism Mail AI Employee triage)
+- `/Needs_Action` - Items requiring human attention (after Prism Digital Mail FTE triage)
 - `/Summaries` - FYI items that don't need action (markdown summaries)
-- `/Replies` - Draft responses prepared by Prism Mail AI Employee (markdown files, not sent)
+- `/Replies` - Draft responses prepared by Prism Digital Mail FTE (markdown files, not sent)
 - `/Done` - Completed/archived items
 - `Dashboard.md` - Main dashboard with triage statistics and recent activity
 - `Company_Handbook.md` - Rules of engagement and triage criteria
@@ -252,7 +252,7 @@ All folders have been verified to exist and are ready for use.
    - Mark emails as processed to avoid duplicates
    - Include email metadata (sender, subject, timestamp, body)
 
-3. **Prism Mail AI Employee (Claude Code) successfully reading from and writing to the vault**
+3. **Prism Digital Mail FTE (Claude Code) successfully reading from and writing to the vault**
    - Configure Claude Code to work with the Obsidian vault
    - Verify reading capability from vault files
    - Verify writing capability to vault files
@@ -261,9 +261,9 @@ All folders have been verified to exist and are ready for use.
 4. **Enhanced folder structure with intelligent triage**
    - Create folder structure inside the Obsidian vault
    - /Inbox - Untriaged emails from watcher (staging area)
-   - /Needs_Action - Items requiring human attention (after Prism Mail AI Employee triage)
+   - /Needs_Action - Items requiring human attention (after Prism Digital Mail FTE triage)
    - /Summaries - FYI items that don't need action (markdown summaries)
-   - /Replies - Draft responses prepared by Prism Mail AI Employee (markdown files, not sent)
+   - /Replies - Draft responses prepared by Prism Digital Mail FTE (markdown files, not sent)
    - /Done - Completed/archived items
 
 5. **All AI functionality implemented as Agent Skills**
@@ -287,7 +287,7 @@ The hackathon explicitly requires all AI functionality to be implemented as Agen
 - **Scalability:** Easy to add new skills for Silver/Gold tiers
 - **Maintainability:** Clear separation of concerns
 
-**Example Skills for Prism Mail AI Employee:**
+**Example Skills for Prism Digital Mail FTE:**
 - `/triage-email` - Analyzes an email and determines routing
 - `/create-summary` - Generates a summary from email content
 - `/draft-reply` - Creates a draft response to an email
@@ -307,9 +307,9 @@ The hackathon explicitly requires all AI functionality to be implemented as Agen
 - Implement email detection and markdown file creation
 - Test watcher creates files in /Inbox correctly
 
-### Phase 3: Prism Mail AI Employee Integration & Triage Logic
+### Phase 3: Prism Digital Mail FTE Integration & Triage Logic
 - Configure Claude Code for vault access
-- Design Prism Mail AI Employee triage logic as Agent Skills (not inline code)
+- Design Prism Digital Mail FTE triage logic as Agent Skills (not inline code)
 - Test reading from /Inbox and writing to appropriate folders
 - Validate summary creation and draft reply generation
 - Test Dashboard.md updates
@@ -355,9 +355,9 @@ All folders inside the Obsidian vault:
 
 ## Success Criteria
 - All Bronze Tier deliverables are implemented
-- Working demonstration of Prism Mail AI Employee's intelligent triage workflow
+- Working demonstration of Prism Digital Mail FTE's intelligent triage workflow
 - Gmail watcher successfully detects and creates files
-- Prism Mail AI Employee successfully triages and routes emails
+- Prism Digital Mail FTE successfully triages and routes emails
 - User can focus on /Needs_Action folder for items requiring attention
 - Proper documentation of implementation
 - Compliance with the specified requirements
